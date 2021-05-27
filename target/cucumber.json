@@ -1,0 +1,77 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "Validate google search is working fine",
+        "description": "",
+        "id": "check-google-search-functionality;validate-google-search-is-working-fine",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 4,
+            "name": "Browser is open",
+            "match": {
+              "location": "mygooglesearchsteps.browser_is_open()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 5,
+            "name": "user is on google search page",
+            "match": {
+              "location": "mygooglesearchsteps.User_is_on_google_search_page()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 6,
+            "name": "User enters a text in google search page",
+            "match": {
+              "location": "mygooglesearchsteps.user_enters_a_text_in_google_search_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 7,
+            "name": "hits Enter button",
+            "match": {
+              "location": "mygooglesearchsteps.hits_Enter_button()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 8,
+            "name": "user is navigated to google search page",
+            "match": {
+              "location": "mygooglesearchsteps.user_is_navigated_to_google_search_page()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Check google search functionality",
+    "description": "",
+    "id": "check-google-search-functionality",
+    "keyword": "Feature",
+    "uri": "D:/sujay workspace/InfoCucumber/src/test/java/myfeatures/mygooglesearch.feature"
+  }
+]
