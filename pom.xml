@@ -42,11 +42,11 @@
 		</dependency>
 
 		<dependency>
-    			<groupId>info.cukes</groupId>
-    			<artifactId>cucumber-picocontainer</artifactId>
-    			<version>1.2.6</version>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-picocontainer</artifactId>
+			<version>1.2.6</version>
 		</dependency>
-		
+
 
 
 
@@ -75,6 +75,11 @@
 			<version>1.10.19</version>
 		</dependency>
 
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-picocontainer</artifactId>
+			<version>1.2.6</version>
+		</dependency>
 
 	</dependencies>
 
