@@ -1,30 +1,33 @@
-package mystepdef;
+package dataProviders;
 
-import java.util.concurrent.TimeUnit;
+import javax.swing.plaf.synth.SynthOptionPaneUI;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import enums.Context;
 import pagemanager.CartPage;
 import pagemanager.CheckoutPage;
 import pagemanager.HomePage;
+import pagemanager.Login;
 import pagemanager.OrderConfirmationPage;
 import pagemanager.OrderPlacementPage;
 import pagemanager.PageObjectManager;
 import pagemanager.ProductDetailPage;
 
-public class Ecommerce_Steps
+public class Ecommerce_Steps_V2_Impl_TestContext
 {
-
-/*	
 	static String user_dir;
 	 WebDriver driver;
+	 
+	 //TestContext Object
+	 TestContext testContext;
 	
+	 Login login_obj;
 	 PageObjectManager page_manager_obj;
 	 HomePage home_page;
 	 ProductDetailPage prod_detail_page;
@@ -32,39 +35,51 @@ public class Ecommerce_Steps
 	 CheckoutPage checkout_page;
 	 OrderPlacementPage orderplacement_page;
 	 OrderConfirmationPage orderconfirm_page;
+	 WebDriverManager web_driver_manager;
 	 boolean flag=false;
+	 ScenarioContext scenario_obj;	 
+	 
+	 //Constructor
+	 public Ecommerce_Steps_V2_Impl_TestContext(TestContext context)
+	 {
+		 testContext = context;
+		 web_driver_manager=testContext.getWebDriverManager();
+		 page_manager_obj=testContext.getPageObjectManager();
+		 scenario_obj=testContext.getScenarioContext();
+		 scenario_obj.setContext(Context.PRODUCT_NAME, context);
+		 
+	 }
 	
 	@Given("Login page is displayed")
 	public void login_page_is_displayed() throws Throwable
 	{
-		user_dir=System.getProperty("user.dir"); 
-
-		System.setProperty("webdriver.chrome.driver",user_dir+"\\src\\test\\resources\\Drivers\\chromedriver.exe"); 
-		driver=new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
-		driver.navigate().to("https://www.saucedemo.com/");
+		login_obj= page_manager_obj.go_To_Login();
 	}
 	
 	
 	  @And("^Enter username and password and click on login button$") 
 	  public void  enter_username_as_and_password_and_click_on_login_button() throws Throwable
 	  {
-	  driver.findElement(By.id("user-name")).sendKeys("standard_user");
-	  driver.findElement(By.id("password")).sendKeys("secret_sauce"); 
-	  driver.findElement(By.id("login-button")).click();
-	  
-	  
+		  
+		  login_obj.login("standard_user", "secret_sauce");  
 	  }
 	  
 	  @Then("^Homepage should be displayed\\.$") 
 	  public void  homepage_should_be_displayed() throws Throwable 
 	  { 
 		  
-		  	page_manager_obj = new  PageObjectManager(driver); 
-		  	home_page =page_manager_obj.get_HomePage(); home_page.navigateTo_HomePage();
-	  
+		  	flag=false;
+		  	home_page=page_manager_obj.get_HomePage();
+
+		  	flag=home_page.is_dropdown_dispalyed_or_not();
+		  	if(flag)
+		  	{
+		  		System.out.println("Products are Displayed");
+		  	}
+		  	else
+		  	{
+		  		System.out.println("Products are NOT displayed");
+		  	}
 	  }
 	  
 	  @Given("^In homepage Click on \"([^\"]*)\" image link$") 
@@ -150,9 +165,7 @@ public class Ecommerce_Steps
 		  orderconfirm_page=page_manager_obj.get_Order_Confirmation_page();
 		  System.out.println(orderconfirm_page.get_order_Confirmation_msg());
 		  
-		  driver.close();
+		  web_driver_manager.closeDriver();
 	  }
-	  
-	*/
-
+	 
 }

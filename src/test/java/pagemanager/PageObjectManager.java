@@ -6,6 +6,8 @@ public class PageObjectManager
 {
 	private WebDriver driver;
 	
+	private Login login;
+	
 	private CartPage cartpage;
 	
 	private HomePage homepage;
@@ -22,6 +24,12 @@ public class PageObjectManager
 	public PageObjectManager(WebDriver driver)
 	{
 		this.driver=driver;
+	}
+	
+	//Get Login
+	public Login go_To_Login()
+	{
+		return (login==null) ? login= new Login(driver) :login;
 	}
 	
 	//Get HomePage
